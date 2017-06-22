@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :Database do |db|
     db.vm.box = "ubuntu/trusty64"
     db.vm.network "private_network", ip: "192.168.42.5", virtualbox__intnet: true
+    db.vm.hostname = "database"
     db.vm.provider "virtualbox" do |dbvb|
       dbvb.name = "Database"
       dbvb.memory = 512
