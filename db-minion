@@ -1,0 +1,11 @@
+##### Primary configuration settings #####
+##########################################
+
+# Set the file server to local, for masterless minion
+file_client: local
+
+# Set the directory where Salt States can be found. This is the location
+# where the vm will find the salt state formulas.
+file_roots:
+  base:
+    - /vagrant/salt_states/db

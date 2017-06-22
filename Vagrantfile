@@ -15,6 +15,13 @@ Vagrant.configure("2") do |config|
       dbvb.cpus = 1
       dbvb.customize ["modifyvm", :id, "--cpuexecutioncap", "25"]
     end
+    db.vm.provision :salt do |salt|
+      salt.masterless = true
+      salt.install_type = "stable"
+      salt.minion_config = "db-minion"
+      salt.minion_id = "kevin"
+      salt.run_highstate = true
+    end
   end
 
 end
