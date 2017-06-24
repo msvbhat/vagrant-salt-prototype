@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :Webapp do |web|
     web.vm.box = "ubuntu/trusty64"
     web.vm.network "private_network", ip: "192.168.42.6", virtualbox__intnet: true
+    web.vm.network :forwarded_port, guest: 80, host: 4242
     web.vm.hostname = "webapp"
     web.vm.provider "virtualbox" do |webv|
       webv.name = "Webapp"

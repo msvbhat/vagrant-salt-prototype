@@ -1,3 +1,3 @@
 base:
   '*':
-    - mysql_client
+    - build
