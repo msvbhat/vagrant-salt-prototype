@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     db.vm.hostname = "database"
     db.vm.provider "virtualbox" do |dbvb|
       dbvb.name = "Database"
-      dbvb.memory = 512
+      dbvb.memory = 1024
       dbvb.cpus = 1
       dbvb.customize ["modifyvm", :id, "--cpuexecutioncap", "25"]
     end
@@ -22,6 +22,25 @@ Vagrant.configure("2") do |config|
       salt.minion_config = "db-minion"
       salt.minion_id = "kevin"
       salt.run_highstate = true
+    end
+  end
+
+  config.vm.define :Webapp do |web|
+    web.vm.box = "ubuntu/trusty64"
+    web.vm.network "private_network", ip: "192.168.42.6", virtualbox__intnet: true
+    web.vm.hostname = "webapp"
+    web.vm.provider "virtualbox" do |webv|
+      webv.name = "Webapp"
+      webv.memory = 512
+      webv.cpus = 1
+      webv.customize ["modifyvm", :id, "--cpuexecutioncap", "25"]
+    end
+    web.vm.provision :salt do |salt|
+      salt.masterless = true
+      salt.install_type = "stable"
+      salt.minion_config = "web-minion"
+      salt.minion_id = "bob"
+      salt.run_highstate = false
     end
   end
 
