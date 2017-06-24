@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
       salt.install_type = "stable"
       salt.minion_config = "web-minion"
       salt.minion_id = "bob"
-      salt.run_highstate = false
+      salt.run_highstate = true
     end
   end
 
