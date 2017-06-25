@@ -1,0 +1,3 @@
+base:
+  '*':
+    - start_sensu

@@ -56,6 +56,13 @@ Vagrant.configure("2") do |config|
       monv.cpus = 1
       monv.customize ["modifyvm", :id, "--cpuexecutioncap", "25"]
     end
+    mon.vm.provision :salt do |salt|
+      salt.masterless = true
+      salt.install_type = "stable"
+      salt.minion_config = "sensu-minion"
+      salt.minion_id = "stuart"
+      salt.run_highstate = true
+    end
   end
 
 end
