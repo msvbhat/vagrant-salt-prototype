@@ -2,3 +2,4 @@ base:
   '*':
     - build
     - setup
+    - run
