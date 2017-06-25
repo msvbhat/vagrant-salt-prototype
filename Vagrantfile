@@ -45,4 +45,17 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define :Monitoring do |mon|
+    mon.vm.box = "ubuntu/trusty64"
+    mon.vm.network "private_network", ip: "192.168.42.7", virtualbox__intnet: true
+    mon.vm.network :forwarded_port, guest: 3000, host: 8082
+    mon.vm.hostname = "monitor"
+    mon.vm.provider "virtualbox" do |monv|
+      monv.name = "Monitoring"
+      monv.memory = 512
+      monv.cpus = 1
+      monv.customize ["modifyvm", :id, "--cpuexecutioncap", "25"]
+    end
+  end
+
 end
