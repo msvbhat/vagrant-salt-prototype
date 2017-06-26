@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
     db.vm.provision :salt do |salt|
       salt.masterless = true
       salt.install_type = "stable"
-      salt.no_minion = true
       salt.minion_config = "db-minion"
       salt.minion_id = "kevin"
       salt.run_highstate = true
@@ -40,7 +39,6 @@ Vagrant.configure("2") do |config|
     web.vm.provision :salt do |salt|
       salt.masterless = true
       salt.install_type = "stable"
-      salt.no_minion = true
       salt.minion_config = "web-minion"
       salt.minion_id = "bob"
       salt.run_highstate = true
@@ -61,7 +59,6 @@ Vagrant.configure("2") do |config|
     mon.vm.provision :salt do |salt|
       salt.masterless = true
       salt.install_type = "stable"
-      salt.no_minion = true
       salt.minion_config = "sensu-minion"
       salt.minion_id = "stuart"
       salt.run_highstate = true
