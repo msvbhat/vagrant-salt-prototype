@@ -15,9 +15,6 @@ sensu_repo:
 sensu:
   pkg.installed
 
-uchiwa:
-  pkg.installed
-
 sensu_load:
   cmd.run:
    - name: sensu-install -p load-checks

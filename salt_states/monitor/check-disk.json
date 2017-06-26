@@ -1,6 +1,6 @@
 {
      "checks": {
-      "check-disk-usage-linux": {
+      "check-disk-usage": {
       "command": "/opt/sensu/embedded/bin/check-disk-usage.rb -w 80 -c 90",
       "interval": 60,
       "occurrences": 5,

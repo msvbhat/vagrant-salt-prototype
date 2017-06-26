@@ -1,9 +1,9 @@
 {
       "checks": {
-      "check-process": {
+      "check-mysql": {
       "command": "/opt/sensu/embedded/bin/check-process.rb -p mysqld -C 1",
       "interval": 30,
-      "occurrences": 5,
+      "occurrences": 1,
       "subscribers": [ "database" ]
         }
       }
