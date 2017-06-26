@@ -41,6 +41,8 @@ uchiwa_start:
     - name: uchiwa
     - watch:
       - file: /etc/sensu/uchiwa.json
+      - service: sensu-server
+      - service: sensu-api
 
 /etc/sensu/conf.d/redis.json:
   file.managed:
