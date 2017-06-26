@@ -1,3 +1,7 @@
+update_apt_get:
+  cmd.wait:
+   - name: apt-get update
+
 sensu_repo:
   pkgrepo.managed:
     - humanname: Sensu PPA
@@ -5,12 +9,14 @@ sensu_repo:
     - file: /etc/apt/sources.list.d/sensu.list
     - key_url: https://sensu.global.ssl.fastly.net/apt/pubkey.gpg
     - refresh_db: False
+    - watch_in:
+      - cmd: update_apt_get
 
-sensu_pkgs:
-  pkg.installed:
-    - pkgs:
-      - sensu
-      - uchiwa
+sensu:
+  pkg.installed
+
+uchiwa:
+  pkg.installed
 
 sensu_load:
   cmd.run:

@@ -32,8 +32,9 @@ sensu-client:
     - file: /etc/sensu/conf.d/check-disk.json
     - file: /etc/sensu/conf.d/check-cpu.json
 
-uchiwa:
+uchiwa_start:
   service.running:
+    - name: uchiwa
     - watch:
       - file: /etc/sensu/uchiwa.json
 
