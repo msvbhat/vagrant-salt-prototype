@@ -3,7 +3,7 @@
     "name": "monitor",
     "address": "localhost",
     "environment": "development",
-    "subscriptions": [ "ALL" ]
+    "subscriptions": [ "linux" ]
   }
 }
 
