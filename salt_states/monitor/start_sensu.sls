@@ -9,6 +9,8 @@ sensu-server:
     - file: /etc/sensu/conf.d/check-memory.json
     - file: /etc/sensu/conf.d/check-disk.json
     - file: /etc/sensu/conf.d/check-cpu.json
+    - file: /etc/sensu/conf.d/check-mysql.json
+    - file: /etc/sensu/conf.d/check-webapp.json
 
 sensu-api:
   service.running:
@@ -21,6 +23,8 @@ sensu-api:
     - file: /etc/sensu/conf.d/check-memory.json
     - file: /etc/sensu/conf.d/check-disk.json
     - file: /etc/sensu/conf.d/check-cpu.json
+    - file: /etc/sensu/conf.d/check-mysql.json
+    - file: /etc/sensu/conf.d/check-webapp.json
 
 sensu-client:
   service.running:
@@ -73,3 +77,11 @@ uchiwa_start:
 /etc/sensu/conf.d/check-cpu.json:
   file.managed:
     - source: salt://check-cpu.json
+
+/etc/sensu/conf.d/check-mysql.json:
+  file.managed:
+    - source: salt://check-mysql.json
+
+/etc/sensu/conf.d/check-webapp.json:
+  file.managed:
+    - source: salt://check-webapp.json

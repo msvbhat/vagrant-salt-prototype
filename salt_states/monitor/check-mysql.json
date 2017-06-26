@@ -1,0 +1,10 @@
+{
+      "checks": {
+      "check-process": {
+      "command": "/opt/sensu/embedded/bin/check-process.rb -p mysqld -C 1",
+      "interval": 30,
+      "occurrences": 5,
+      "subscribers": [ "database" ]
+        }
+      }
+}
