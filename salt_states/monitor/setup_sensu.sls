@@ -33,7 +33,3 @@ sensu_disk:
 sensu_cpu:
   cmd.run:
    - name: sensu-install -p cpu-checks
-
-sensu_process:
-  cmd.run:
-   - name: sensu-install -p process-checks
