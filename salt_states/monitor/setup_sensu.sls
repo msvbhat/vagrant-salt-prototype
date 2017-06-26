@@ -11,3 +11,19 @@ sensu_pkgs:
     - pkgs:
       - sensu
       - uchiwa
+
+sensu_load:
+  cmd.run:
+   - name: sensu-install -p load-checks
+
+sensu_memory:
+  cmd.run:
+   - name: sensu-install -p memory-checks
+
+sensu_disk:
+  cmd.run:
+   - name: sensu-install -p disk-checks
+
+sensu_cpu:
+  cmd.run:
+   - name: sensu-install -p cpu-checks
