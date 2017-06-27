@@ -93,6 +93,6 @@ vms.
 * Secure the mysql installation
 * Add authentication to redis and uchiwa
 * Add handlers to the check events sending mail/pagerDuty notification upon critical events
-* Use non-root user to run the webapp (whereever else possible)
+* Use non-root user to run the webapp (and wherever else possible)
 
 That's it, thank you for exploring this project.
